@@ -1,8 +1,10 @@
 "use client"
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Eye, Heart, Users, Clock, Award, ArrowRight, CheckCircle, Globe, Shield, Zap, Phone, Mail, MapPin, Star, TrendingUp, Activity, Sparkles, ArrowUpRight, Play, Pause, Volume2, VolumeX, Menu, X, Send, Calendar, Target, Lightbulb, HandHeart } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const DrishtiLanding = () => {
+  const router = useRouter()
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState({});
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -196,7 +198,7 @@ const DrishtiLanding = () => {
             </div>
 
             <div className="hidden lg:flex items-center space-x-4">
-              <button className="px-6 py-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-105 font-semibold">
+              <button onClick={()=>router.push("/pledge")} className="px-6 py-3 cursor-pointer bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-105 font-semibold">
                 Pledge Now
               </button>
               <button className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition-all duration-300 font-semibold">
@@ -228,7 +230,7 @@ const DrishtiLanding = () => {
                   {item}
                 </a>
               ))}
-              <button className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full font-semibold">
+              <button onClick={()=>router.push("/pledge")}  className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full font-semibold">
                 Pledge Now
               </button>
             </div>
