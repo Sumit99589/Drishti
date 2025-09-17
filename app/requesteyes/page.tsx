@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react';
 import { 
   User, Mail, Phone, MapPin, Calendar, Shield, Clock, Users, Activity, 
   CheckCircle, AlertCircle, FileText, Hospital, Heart, Eye, Star,
-  ChevronDown, ChevronUp, Download, Share2, Zap, Target, Sparkles
+  ChevronDown, ChevronUp, Download, Share2, Zap, Target, Sparkles,
+  AirVent
 } from 'lucide-react';
+import AIEyeRequestDemo from '@/components/aimodal';
 
 const RequestEyesPage = () => {
   const [currentStep, setCurrentStep] = useState('form');
@@ -144,7 +146,12 @@ const RequestEyesPage = () => {
     return required.every(field => formData[field]) && formData.consentToShare;
   };
 
+  const [showAIModal, setShowAIModal] = useState(false);
+  const [patientData, setPatientData] = useState({});
+
   if (currentStep === 'success') {
+    setPatientData(formData);
+    setShowAIModal(true);
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-50 via-rose-50 to-orange-50 text-gray-800 overflow-x-hidden">
         {/* Animated Background */}
@@ -300,6 +307,12 @@ const RequestEyesPage = () => {
             </div>
           </div>
         </div>
+
+        <AIEyeRequestDemo 
+        isOpen={showAIModal}
+        onClose={() => setShowAIModal(false)}
+        patientData={patientData}
+      />
 
         {/* Important Notes */}
         <div className="relative z-10 py-16">
