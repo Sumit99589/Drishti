@@ -201,7 +201,7 @@ const DrishtiLanding = () => {
               <button onClick={()=>router.push("/pledge")} className="px-6 py-3 cursor-pointer bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 transform hover:scale-105 font-semibold">
                 Pledge Now
               </button>
-              <button className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition-all duration-300 font-semibold">
+              <button onClick={()=>router.push("/requesteyes")} className="cursor-pointer px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition-all duration-300 font-semibold">
                 Request Eyes
               </button>
             </div>
@@ -690,7 +690,7 @@ const DrishtiLanding = () => {
                   </div>
                 </div>
 
-                <button className="mt-8 group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-rose-500/30">
+                <button onClick={()=>router.push("/pledge")} className="mt-8 group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-rose-500/30">
                   <span className="relative z-10">Join the Movement</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-rose-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
