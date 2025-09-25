@@ -1,21 +1,13 @@
 "use client"
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Eye, Heart, Users, Clock, Award, ArrowRight, CheckCircle, Globe, Shield, Zap, Phone, Mail, MapPin, Star, TrendingUp, Activity, Sparkles, ArrowUpRight, Play, Pause, Volume2, VolumeX, Menu, X, Send, Calendar, Target, Lightbulb, HandHeart } from 'lucide-react';
+import { Eye, Heart, Clock, ArrowRight, CheckCircle, Shield, Zap, Phone, Mail, MapPin, Star, TrendingUp, Activity, Sparkles, ArrowUpRight, Play, Pause, Menu, X, Send, Target, Lightbulb, HandHeart } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const DrishtiLanding = () => {
   const router = useRouter()
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isVisible, setIsVisible] = useState({});
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
-  const [activeTab, setActiveTab] = useState('mission');
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
-  const videoRef = useRef(null);
+  // ...existing code...
 
   // Enhanced carousel data with working images
   const carouselSlides = [

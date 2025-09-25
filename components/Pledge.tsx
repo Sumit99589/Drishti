@@ -1,18 +1,10 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { 
-  Eye, Heart, CheckCircle, ArrowRight, User, Mail, Phone, MapPin, 
-  Calendar, Shield, Clock, Users, Activity, Sparkles, Award, 
-  FileText, AlertCircle, Lightbulb, Target, HandHeart, Globe,
-  Download, Share2, ChevronDown, ChevronUp, Star, Zap
-} from 'lucide-react';
+import { Eye, Heart, CheckCircle, User, Mail, Phone, MapPin, Shield, Clock, Activity, Sparkles, AlertCircle, Lightbulb, Target, HandHeart, Globe, ChevronDown, ChevronUp } from 'lucide-react';
 
 const PledgeNowPage = () => {
   const [currentStep, setCurrentStep] = useState('form');
-  const [isVisible, setIsVisible] = useState({});
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [expandedStep, setExpandedStep] = useState(null);
-  const [formData, setFormData] = useState({
+  // ...existing code...
     firstName: '',
     lastName: '',
     email: '',

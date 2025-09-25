@@ -2,16 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import { 
-  User, Mail, Phone, MapPin, Calendar, Shield, Clock, Users, Activity, 
-  CheckCircle, AlertCircle, FileText, Hospital, Heart, Eye, Star,
-  ChevronDown, ChevronUp, Download, Share2, Zap, Target, Sparkles,
-  AirVent
+  User, Mail, Phone, Shield, Clock, Activity, 
+  CheckCircle, AlertCircle, Hospital, Heart, Eye,
+  ChevronDown, ChevronUp, Target, Sparkles
 } from 'lucide-react';
 import AIEyeRequestDemo from '@/components/aimodal';
 
 const RequestEyesPage = () => {
   const [currentStep, setCurrentStep] = useState('form');
-  const [isVisible, setIsVisible] = useState({});
+  const [isVisible, setIsVisible] = useState({}); // used for animation
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [expandedStep, setExpandedStep] = useState(null);
   const [formData, setFormData] = useState({
@@ -243,7 +242,7 @@ const RequestEyesPage = () => {
                 </span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Understanding the process helps you prepare better. Here's your journey from request to sight restoration.
+                Understanding the process helps you prepare better. Here&apos;s your journey from request to sight restoration.
               </p>
             </div>
 
@@ -323,7 +322,7 @@ const RequestEyesPage = () => {
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-gray-800">Keep Ready</h3>
                   <ul className="space-y-2 text-gray-600">
-                    <li>• Patient's medical records and reports</li>
+                    <li>• Patient&apos;s medical records and reports</li>
                     <li>• Government ID proof (Aadhaar, etc.)</li>
                     <li>• Contact availability for coordination</li>
                     <li>• Hospital admission preparations</li>
@@ -335,7 +334,7 @@ const RequestEyesPage = () => {
                     <li>• Wait times vary based on donor availability</li>
                     <li>• All allocations follow medical guidelines</li>
                     <li>• Stay hopeful and patient</li>
-                    <li>• We're here to support you throughout</li>
+                    <li>• We&apos;re here to support you throughout</li>
                   </ul>
                 </div>
               </div>
@@ -430,7 +429,7 @@ const RequestEyesPage = () => {
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Patient's Full Name *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Patient&apos;s Full Name *</label>
                   <input
                     type="text"
                     name="patientName"
@@ -626,7 +625,7 @@ const RequestEyesPage = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Doctor's Reference (Optional)</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Doctor&apos;s Reference (Optional)</label>
                   <input
                     type="text"
                     name="doctorReference"
