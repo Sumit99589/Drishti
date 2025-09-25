@@ -10,7 +10,6 @@ import {
   Mail, 
   Building, 
   Clock,
-  Zap,
   Brain,
   Radar,
   Send,
@@ -19,13 +18,36 @@ import {
   Activity
 } from 'lucide-react';
 
-const AIEyeRequestModal = ({ isOpen, onClose, patientData }) => {
+const AIEyeRequestModal = ({ isOpen, onClose, patientData }: { isOpen: boolean; onClose: () => void; patientData: any }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [location, setLocation] = useState(null);
-  const [nearbyEyeBanks, setNearbyEyeBanks] = useState([]);
+  interface Location {
+    lat: number;
+    lng: number;
+    city: string;
+  }
+
+  interface EyeBank {
+    id: number;
+    name: string;
+    address: string;
+    phone: string;
+    email: string;
+    distance: string;
+    rating: number;
+    availability: string;
+    specialization: string;
+  }
+
+  interface EmailStatus extends EyeBank {
+    sentAt: string;
+    status: 'sent' | 'failed';
+  }
+
+  const [location, setLocation] = useState<Location | null>(null);
+  const [nearbyEyeBanks, setNearbyEyeBanks] = useState<EyeBank[]>([]);
   const [aiStatus, setAiStatus] = useState('');
-  const [emailsSent, setEmailsSent] = useState([]);
+  const [emailsSent, setEmailsSent] = useState<EmailStatus[]>([]);
   const [progress, setProgress] = useState(0);
 
   const steps = [
@@ -131,7 +153,7 @@ const AIEyeRequestModal = ({ isOpen, onClose, patientData }) => {
       sentEmails.push({
         ...bank,
         sentAt: new Date().toLocaleTimeString(),
-        status: Math.random() > 0.1 ? 'sent' : 'failed'
+        status: (Math.random() > 0.1 ? 'sent' : 'failed') as 'sent' | 'failed'
       });
       setEmailsSent([...sentEmails]);
       setProgress(60 + (i + 1) * 8);
@@ -144,6 +166,7 @@ const AIEyeRequestModal = ({ isOpen, onClose, patientData }) => {
     setIsProcessing(false);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (isOpen && !isProcessing && currentStep === 0) {
       simulateAIProcess();

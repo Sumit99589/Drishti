@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Eye, Heart, Users, Clock, Award, ArrowRight, CheckCircle, Globe, Shield, Zap, Phone, Mail, MapPin, Star, TrendingUp, Activity, Sparkles, ArrowUpRight, Play, Pause, Volume2, VolumeX, Menu, X, Send, Calendar, Target, Lightbulb, HandHeart } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
@@ -43,7 +44,7 @@ const DrishtiLanding = () => {
 
   // Mouse parallax effect
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -786,7 +787,7 @@ const DrishtiLanding = () => {
                 />
                 <textarea
                   placeholder="How can we help you?"
-                  rows="4"
+                  rows={4}
                   className="w-full px-4 py-3 bg-white/50 rounded-xl border border-gray-300 focus:border-orange-400 focus:outline-none transition-colors resize-none text-gray-800"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
