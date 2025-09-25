@@ -7,6 +7,15 @@ import { useRouter } from 'next/navigation';
 const DrishtiLanding = () => {
   const router = useRouter()
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [scrollY, setScrollY] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [activeTab, setActiveTab] = useState<'mission' | 'vision' | 'impact' | 'technology'>('mission');
+  const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
+  // Contact form local state (footer/contact section)
+  interface ContactFormData { name: string; email: string; phone: string; message: string }
+  const [formData, setFormData] = useState<ContactFormData>({ name: '', email: '', phone: '', message: '' });
   // ...existing code...
 
   // Enhanced carousel data with working images
@@ -367,7 +376,7 @@ const DrishtiLanding = () => {
               {['mission', 'vision', 'impact', 'technology'].map((tab) => (
                 <button
                   key={tab}
-                  onClick={() => setActiveTab(tab)}
+                  onClick={() => setActiveTab(tab as 'mission' | 'vision' | 'impact' | 'technology')}
                   className={`px-6 py-3 rounded-full capitalize transition-all duration-300 font-medium ${
                     activeTab === tab
                       ? 'bg-gradient-to-r from-orange-500 to-rose-500 text-white shadow-lg shadow-rose-500/30'

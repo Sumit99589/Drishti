@@ -1,17 +1,19 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { 
   User, Mail, Phone, Shield, Clock, Activity, 
   CheckCircle, AlertCircle, Hospital, Heart, Eye,
   ChevronDown, ChevronUp, Target, Sparkles
 } from 'lucide-react';
-import AIEyeRequestDemo from '@/components/aimodal';
+// AI modal import removed pending future integration
+
+interface MousePosition { x: number; y: number }
 
 const RequestEyesPage = () => {
   const [currentStep, setCurrentStep] = useState('form');
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [expandedStep, setExpandedStep] = useState(null);
+  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
+  const [expandedStep, setExpandedStep] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     // Patient Information
     patientName: '',
@@ -45,7 +47,7 @@ const RequestEyesPage = () => {
 
   // Mouse parallax effect
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -120,15 +122,20 @@ const RequestEyesPage = () => {
     }
   ];
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const target = e.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+    const { name } = target;
+    let value: string | boolean = (target as HTMLInputElement).value;
+    if ('type' in target && (target as HTMLInputElement).type === 'checkbox') {
+      value = (target as HTMLInputElement).checked;
+    }
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: value
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isFormValid()) {
       setCurrentStep('success');
@@ -136,7 +143,7 @@ const RequestEyesPage = () => {
   };
 
   const isFormValid = () => {
-    const required = [
+    const required: (keyof typeof formData)[] = [
       'patientName', 'patientAge', 'patientGender', 'contactName', 
       'relationToPatient', 'contactNumber', 'email', 'city', 'state', 
       'pincode', 'reasonForRequest', 'urgencyLevel'
@@ -144,12 +151,7 @@ const RequestEyesPage = () => {
     return required.every(field => formData[field]) && formData.consentToShare;
   };
 
-  const [showAIModal, setShowAIModal] = useState(false);
-  const [patientData, setPatientData] = useState({});
-
   if (currentStep === 'success') {
-    setPatientData(formData);
-    setShowAIModal(true);
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-50 via-rose-50 to-orange-50 text-gray-800 overflow-x-hidden">
         {/* Animated Background */}
