@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
-import { Eye, Heart, CheckCircle, User, Mail, Phone, MapPin, Shield, Clock, Activity, Sparkles, AlertCircle, Lightbulb, Target, HandHeart, Globe, ChevronDown, ChevronUp } from 'lucide-react';
+import { Eye, Heart, CheckCircle, User, Mail, Phone, MapPin, Shield, Clock, Activity, Sparkles, AlertCircle, Target, HandHeart, ChevronDown, ChevronUp, Download, Users, Share2 } from 'lucide-react';
 
 const PledgeNowPage = () => {
   const [currentStep, setCurrentStep] = useState('form');
@@ -183,7 +183,7 @@ const PledgeNowPage = () => {
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Thank you, <strong>{formData.firstName} {formData.lastName}</strong>, for making the noble decision to give the gift of sight. Your pledge has been registered and you're now part of our community of heroes.
+                Thank you, <strong>{formData.firstName} {formData.lastName}</strong>, for making the noble decision to give the gift of sight. Your pledge has been registered and you&apos;re now part of our community of heroes.
               </p>
             </div>
 

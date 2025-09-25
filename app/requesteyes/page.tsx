@@ -10,7 +10,6 @@ import AIEyeRequestDemo from '@/components/aimodal';
 
 const RequestEyesPage = () => {
   const [currentStep, setCurrentStep] = useState('form');
-  const [isVisible, setIsVisible] = useState({}); // used for animation
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [expandedStep, setExpandedStep] = useState(null);
   const [formData, setFormData] = useState({
@@ -59,7 +58,7 @@ const RequestEyesPage = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
+            // visibility animation removed
             entry.target.classList.add('animate-in');
           }
         });
@@ -307,11 +306,7 @@ const RequestEyesPage = () => {
           </div>
         </div>
 
-        <AIEyeRequestDemo 
-        isOpen={showAIModal}
-        onClose={() => setShowAIModal(false)}
-        patientData={patientData}
-      />
+        {/* AI modal demo removed until integrated with proper props */}
 
         {/* Important Notes */}
         <div className="relative z-10 py-16">
@@ -557,7 +552,7 @@ const RequestEyesPage = () => {
                     name="address"
                     value={formData.address}
                     onChange={handleInputChange}
-                    rows="3"
+                    rows={3}
                     className="w-full px-4 py-3 bg-white/50 rounded-xl border border-gray-300 focus:border-orange-400 focus:outline-none transition-colors resize-none text-gray-800"
                     placeholder="Street address, apartment, suite, etc."
                   />
@@ -667,7 +662,7 @@ const RequestEyesPage = () => {
                     name="medicalReports"
                     value={formData.medicalReports}
                     onChange={handleInputChange}
-                    rows="4"
+                    rows={4}
                     className="w-full px-4 py-3 bg-white/50 rounded-xl border border-gray-300 focus:border-orange-400 focus:outline-none transition-colors resize-none text-gray-800"
                     placeholder="Please provide any relevant medical history, current condition details, medications, etc."
                   />
@@ -699,7 +694,7 @@ const RequestEyesPage = () => {
                     name="additionalNotes"
                     value={formData.additionalNotes}
                     onChange={handleInputChange}
-                    rows="3"
+                    rows={3}
                     className="w-full px-4 py-3 bg-white/50 rounded-xl border border-gray-300 focus:border-orange-400 focus:outline-none transition-colors resize-none text-gray-800"
                     placeholder="Any other information that might be helpful for processing your request"
                   />

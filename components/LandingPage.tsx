@@ -1,7 +1,7 @@
 "use client"
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Eye, Heart, Clock, ArrowRight, CheckCircle, Shield, Zap, Phone, Mail, MapPin, Star, TrendingUp, Activity, Sparkles, ArrowUpRight, Play, Pause, Menu, X, Send, Target, Lightbulb, HandHeart } from 'lucide-react';
+import { Eye, Heart, Clock, ArrowRight, CheckCircle, Shield, Zap, Phone, Mail, MapPin, Star, TrendingUp, Activity, Sparkles, ArrowUpRight, Play, Pause, Menu, X, Send, Target, Lightbulb, HandHeart, Globe } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 const DrishtiLanding = () => {
