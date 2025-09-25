@@ -1,11 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { 
-  User, Mail, Phone, MapPin, Calendar, Shield, Clock, Users, Activity, 
-  CheckCircle, AlertCircle, FileText, Hospital, Heart, Eye, Star,
-  ChevronDown, ChevronUp, Download, Share2, Zap, Target, Sparkles
-} from 'lucide-react';
+import { User, Mail, Phone, Shield, Clock, Activity, CheckCircle, AlertCircle, Hospital, Heart, Eye, ChevronDown, ChevronUp, Target, Sparkles } from 'lucide-react';
 
 const RequestEyesPage = () => {
   const [currentStep, setCurrentStep] = useState('form');
