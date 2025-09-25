@@ -4,7 +4,7 @@ import { Eye, Heart, CheckCircle, User, Mail, Phone, MapPin, Shield, Clock, Acti
 
 const PledgeNowPage = () => {
   const [currentStep, setCurrentStep] = useState('form');
-  // ...existing code...
+  const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
