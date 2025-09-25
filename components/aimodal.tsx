@@ -18,7 +18,12 @@ import {
   Activity
 } from 'lucide-react';
 
-const AIEyeRequestModal = ({ isOpen, onClose, patientData }: { isOpen: boolean; onClose: () => void; patientData: any }) => {
+interface AIEyeRequestModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const AIEyeRequestModal: React.FC<AIEyeRequestModalProps> = ({ isOpen, onClose }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
   interface Location {
@@ -166,12 +171,11 @@ const AIEyeRequestModal = ({ isOpen, onClose, patientData }: { isOpen: boolean; 
     setIsProcessing(false);
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (isOpen && !isProcessing && currentStep === 0) {
       simulateAIProcess();
     }
-  }, [isOpen]);
+  }, [isOpen, isProcessing, currentStep]);
 
   const resetModal = () => {
     setCurrentStep(0);
@@ -453,14 +457,6 @@ const AIEyeRequestDemo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Mock patient data - you would pass real data from your form
-  const mockPatientData = {
-    name: "John Doe",
-    age: 45,
-    condition: "Corneal opacity",
-    urgency: "High",
-    bloodType: "O+",
-    location: "New Delhi"
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-rose-50 to-orange-50 flex items-center justify-center p-4">
@@ -483,7 +479,6 @@ const AIEyeRequestDemo = () => {
       <AIEyeRequestModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)}
-        patientData={mockPatientData}
       />
     </div>
   );

@@ -15,7 +15,7 @@ const DrishtiLanding = () => {
       image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=90",
       title: "Every Blink Matters",
       subtitle: "Transform Lives Through the Gift of Vision",
-      description: "Join 100,000+ heroes who've pledged to illuminate someone's world after their last sunset",
+  description: "Join 100,000+ heroes who&apos;ve pledged to illuminate someone&apos;s world after their last sunset",
       stats: { donors: "100K+", lives: "50K+", time: "72hrs" }
     },
     {
@@ -29,7 +29,7 @@ const DrishtiLanding = () => {
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=90",
       title: "A Network of Hope",
       subtitle: "Building Tomorrow's Vision Today",
-      description: "From rural villages to metro cities, we're creating India's largest eye donation ecosystem",
+  description: "From rural villages to metro cities, we&apos;re creating India&apos;s largest eye donation ecosystem",
       stats: { cities: "500+", hospitals: "1000+", volunteers: "50K+" }
     }
   ];
@@ -356,9 +356,9 @@ const DrishtiLanding = () => {
                 Reimagining Eye Donation
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're not just facilitating donations; we're architecting a future where vision is a universal right, not a privilege.
-            </p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                We&apos;re not just facilitating donations; we&apos;re architecting a future where vision is a universal right, not a privilege.
+              </p>
           </div>
 
           {/* Interactive Tabs */}
@@ -385,8 +385,8 @@ const DrishtiLanding = () => {
                   <h3 className="text-3xl font-bold mb-6 text-gray-800">Our Sacred Mission</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Every 5 minutes, someone in India loses their sight to corneal blindness. We exist to rewrite this narrative. 
-                    Through cutting-edge technology, compassionate community building, and relentless innovation, we're creating 
-                    a world where the gift of sight flows seamlessly from those who've lived fully to those yearning to see.
+                    Through cutting-edge technology, compassionate community building, and relentless innovation, we&apos;re creating 
+                    a world where the gift of sight flows seamlessly from those who&apos;ve lived fully to those yearning to see.
                   </p>
                   <div className="grid md:grid-cols-2 gap-6 mt-8">
                     {processSteps.map((step, i) => (
@@ -474,7 +474,7 @@ const DrishtiLanding = () => {
                 <div className="space-y-6">
                   <h3 className="text-3xl font-bold mb-6 text-gray-800">Breakthrough Innovation</h3>
                   <p className="text-gray-600 leading-relaxed mb-6">
-                    We're pioneering the world's first AI-powered eye donation ecosystem, leveraging quantum computing 
+                    We&apos;re pioneering the world&apos;s first AI-powered eye donation ecosystem, leveraging quantum computing 
                     for instant matching and blockchain for unbreakable trust.
                   </p>
                   <div className="grid md:grid-cols-2 gap-6">
@@ -717,7 +717,7 @@ const DrishtiLanding = () => {
                 </span>
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Have questions? Need support? We're here 24/7 to help you on your journey to giving sight.
+                Have questions? Need support? We&apos;re here 24/7 to help you on your journey to giving sight.
               </p>
 
               <div className="space-y-6">

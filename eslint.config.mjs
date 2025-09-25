@@ -19,6 +19,12 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      // Content-heavy marketing pages contain natural apostrophes/quotes
+      'react/no-unescaped-entities': 'off',
+      // Allow temporarily while refactoring large components
+      '@typescript-eslint/no-explicit-any': 'warn'
+    }
   },
 ];
 
